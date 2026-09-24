@@ -1,0 +1,4 @@
+Perf
+| where CounterName == "% Processor Time" or CounterName == "ProcessorTime"
+| summarize AverageCPU = avg(CounterValue) by bin(TimeGenerated, 1m), Computer
+| render timechart
